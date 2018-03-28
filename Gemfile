@@ -63,6 +63,7 @@ end
 
 group :development do
   gem 'bullet'
+  gem 'bundler-audit', require: false
   gem 'scss_lint', require: false
   gem 'slim_lint', require: false
 end
