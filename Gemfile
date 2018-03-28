@@ -61,6 +61,10 @@ group :development, :test do
   gem 'rubocop', '~> 0.54.0', require: false
 end
 
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
+end
+
 group :development do
   gem 'brakeman', require: false
   gem 'bullet'
