@@ -8,5 +8,8 @@ RSpec.describe Developer, type: :model do
 
     it { should validate_presence_of(:email) }
     it { should validate_uniqueness_of(:email) }
+
+    it { should have_many(:developer_programming_languages) }
+    it { should have_many(:programming_languages) }
   end
 end
