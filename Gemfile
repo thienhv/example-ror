@@ -54,3 +54,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "slim-rails"
+group :development, :test do
+  gem 'rspec-rails', '~> 3.7'
+  gem 'factory_bot_rails'
+end
