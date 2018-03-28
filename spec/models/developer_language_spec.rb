@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe DeveloperLanguage, type: :model do
-  describe 'validations' do
+  describe 'associations' do
     subject { build(:developer_language) }
 
     it { should belong_to(:language) }
