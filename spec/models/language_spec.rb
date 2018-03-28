@@ -8,5 +8,8 @@ RSpec.describe Language, type: :model do
 
     it { should validate_presence_of(:code) }
     it { should validate_uniqueness_of(:code) }
+
+    it { should have_many(:developer_languages) }
+    it { should have_many(:developers) }
   end
 end

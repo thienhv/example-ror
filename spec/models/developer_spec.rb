@@ -11,5 +11,8 @@ RSpec.describe Developer, type: :model do
 
     it { should have_many(:developer_programming_languages) }
     it { should have_many(:programming_languages) }
+
+    it { should have_many(:developer_languages) }
+    it { should have_many(:languages) }
   end
 end
