@@ -63,4 +63,5 @@ end
 
 group :development do
   gem 'bullet'
+  gem 'scss_lint', require: false
 end
