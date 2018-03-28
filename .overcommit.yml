@@ -35,6 +35,10 @@ PreCommit:
     on_warn: fail # Treat all warnings as failures
     quiet: true # Hide ruby version check warnings at whitequark/parser
 
+  EsLint:
+    enabled: true
+    command: ['yarn', 'run',  'eslint', 'app/javascript/packs']
+
 PrePush:
   RSpec:
     enabled: true
