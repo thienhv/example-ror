@@ -62,6 +62,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'brakeman', require: false
   gem 'bullet'
   gem 'bundler-audit', require: false
   gem 'scss_lint', require: false
