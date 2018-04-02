@@ -1,0 +1,12 @@
+<%= form_for @search_developer_form, url: '/' do |f| %>
+  <%= f.select :programming_language, ProgrammingLanguage.all.collect {|pl| [pl.name, pl.id]}, prompt: 'Select Developer Programming', name: 'Developer Programming' %>
+  <%= f.submit 'Search' %>
+<% end %>
+
+<ul>
+<% if @developers %>
+  <% @developers.each do |developer| %>
+    <li><%= developer.email %></li>
+  <% end %>
+<% end %>
+</ul>

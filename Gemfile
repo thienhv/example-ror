@@ -53,10 +53,12 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'overcommit'
 gem 'slim-rails'
+gem 'virtus'
 gem 'webpacker', '~> 3.4'
 
 group :development, :test do
   gem 'factory_bot_rails'
+  gem 'pry-rails'
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop', '~> 0.54.0', require: false
 end
