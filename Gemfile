@@ -58,6 +58,7 @@ gem 'webpacker', '~> 3.4'
 
 group :development, :test do
   gem 'factory_bot_rails'
+  gem 'faker'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop', '~> 0.54.0', require: false
