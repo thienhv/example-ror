@@ -14,47 +14,37 @@ RSpec.describe SearchDeveloperForm do
     end
 
     context 'with from params' do
-      let(:language_en) { create :language, code: 'en' }
-      let(:developer) { create :developer }
-      let(:ruby_programming_language) { create :programming_language, name: 'Ruby' }
-      let(:developer_list) { create_list(:developer, 2) }
+      let(:a_language) { create :language }
+      let(:a_programming_language) { create :programming_language }
+
+      before do
+        create_list(:developer, 2)
+      end
 
       it 'returns developers by programming language' do
-        developer_list
-        developer.developer_programming_languages.create(
-          programming_language: ruby_programming_language
-        )
+        create :developer, programming_languages: [a_programming_language]
 
         form = SearchDeveloperForm.new(
-          programming_language: ruby_programming_language.id
+          programming_language_id: a_programming_language.id
         )
         expect(form.search.size).to eq(1)
       end
 
       it 'returns developers by language' do
-        developer_list
-        developer.developer_languages.create(
-          language: language_en
-        )
+        create :developer, languages: [a_language]
 
         form = SearchDeveloperForm.new(
-          language: language_en.id
+          language_id: a_language.id
         )
         expect(form.search.size).to eq(1)
       end
 
       it 'returns developers by programming language & language' do
-        developer_list
-        developer.developer_languages.create(
-          language: language_en
-        )
-        developer.developer_programming_languages.create(
-          programming_language: ruby_programming_language
-        )
+        create :developer, programming_languages: [a_programming_language], languages: [a_language]
 
         form = SearchDeveloperForm.new(
-          language: language_en.id,
-          programming_language: ruby_programming_language.id
+          language_id: a_language.id,
+          programming_language_id: a_programming_language.id
         )
         expect(form.search.size).to eq(1)
       end

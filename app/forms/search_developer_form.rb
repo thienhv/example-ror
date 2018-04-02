@@ -4,20 +4,15 @@ class SearchDeveloperForm
   include Virtus.model
   include ActiveModel::Model
 
-  attribute :programming_language, ProgrammingLanguage
-  attribute :language, Language
-
-  def initialize(params = {})
-    @programming_language = params[:programming_language] || ''
-    @language = params[:language] || ''
-  end
+  attribute :programming_language_id, String
+  attribute :language_id, String
 
   def search
     query = Developer.all
-    return query if programming_language.blank? && language.blank?
+    return query if programming_language_id.blank? && language_id.blank?
 
-    query = search_programming_language(query) if programming_language.present?
-    query = search_language(query) if language.present?
+    query = search_programming_language(query) if programming_language_id.present?
+    query = search_language(query) if language_id.present?
     query
   end
 
@@ -28,7 +23,7 @@ class SearchDeveloperForm
          .joins(:developer_programming_languages)
          .where(
            'developer_programming_languages.programming_language_id=?',
-           programming_language
+           programming_language_id
          )
   end
 
@@ -37,7 +32,7 @@ class SearchDeveloperForm
          .joins(:developer_languages)
          .where(
            'developer_languages.language_id=?',
-           language
+           language_id
          )
   end
 end

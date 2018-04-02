@@ -1,6 +1,6 @@
 <%= form_for @search_developer_form, url: '/' do |f| %>
-  <%= f.select :programming_language, ProgrammingLanguage.all.collect {|pl| [pl.name, pl.id]}, prompt: 'Select Developer Programming', name: 'Developer Programming' %>
-  <%= f.select :language, Language.all.collect {|l| [l.code, l.id]}, prompt: 'Select Language', name: 'Language' %>
+  <%= f.select :programming_language_id, ProgrammingLanguage.pluck(:name, :id), prompt: 'Select Developer Programming', name: 'Developer Programming' %>
+  <%= f.select :language_id, Language.pluck(:code, :id), prompt: 'Select Language', name: 'Language' %>
   <%= f.submit 'Search' %>
 <% end %>
 
