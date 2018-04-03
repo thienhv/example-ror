@@ -10,4 +10,4 @@ ActiveModelSerializers.config.adapter = :json_api
 #   See: http://jsonapi.org/recommendations/#naming
 #   The following setting disables that.
 #   It doesn't mean this is recommendation. fast_jsonapi doesn't do so, for instance.
-ActiveModel::Serializer.config.key_transform = :unaltered
+# ActiveModel::Serializer.config.key_transform = :unaltered

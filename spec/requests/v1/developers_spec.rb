@@ -37,7 +37,7 @@ RSpec.describe 'Api::V1::DevelopersController', type: :request do
                 email: developer.email
               },
               relationships: {
-                programming_languages: programming_languages,
+                "programming-languages": programming_languages,
                 languages: languages
               }
             }
@@ -88,7 +88,7 @@ RSpec.describe 'Api::V1::DevelopersController', type: :request do
               email: @developer.email
             },
             relationships: {
-              programming_languages: programming_languages,
+              "programming-languages": programming_languages,
               languages: languages
             }
           }
