@@ -9,8 +9,6 @@ class SearchDeveloperForm
 
   def search
     query = Developer.all
-    return query if !programming_language_id? && !language_id?
-
     query = search_by_programming_language(query) if programming_language_id?
     query = search_by_language(query) if language_id?
     query

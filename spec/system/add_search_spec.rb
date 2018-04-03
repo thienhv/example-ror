@@ -7,8 +7,6 @@ RSpec.describe 'Search function', type: :system do
     ruby_programming_language = create :programming_language, name: 'Ruby'
     create :programming_language, name: 'Javascript'
     create :programming_language, name: 'Php'
-
-    english = create :language, code: 'en'
     create :language, code: 'vn'
 
     @ruby_devloper = create :developer,
@@ -18,7 +16,7 @@ RSpec.describe 'Search function', type: :system do
     @ruby_devloper_english = create :developer,
                                     email: 'quang.pham@example.com',
                                     programming_languages: [ruby_programming_language],
-                                    languages: [english]
+                                    languages: [create(:language, code: 'en')]
   end
 
   it 'shows matched records when a programming language is specified' do
