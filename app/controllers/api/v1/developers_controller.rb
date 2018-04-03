@@ -16,7 +16,14 @@ module Api
       end
 
       def show
-        render json: @developer
+        # rubocop:disable Style/GuardClause
+        if stale?(last_modified: @developer.updated_at.utc)
+          cache_options = { compress: true, expires_in: 24.hours, race_condition_ttl: 10 }
+          Rails.cache.fetch("#{@developer.cache_key}/#{__method__}", cache_options) do
+            render json: @developer
+          end
+        end
+        # rubocop:enable Style/GuardClause
       end
 
       private

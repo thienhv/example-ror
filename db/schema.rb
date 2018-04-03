@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20180328134625) do
 
   create_table "developers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_developers_on_email", unique: true
   end
 
