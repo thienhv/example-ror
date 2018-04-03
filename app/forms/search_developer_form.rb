@@ -9,20 +9,12 @@ class SearchDeveloperForm
 
   def search
     query = Developer.all
-    query = search_by_programming_language(query) if programming_language_id?
-    query = search_by_language(query) if language_id?
+    query = search_by_programming_language(query) if programming_language_id.present?
+    query = search_by_language(query) if language_id.present?
     query
   end
 
   private
-
-  def programming_language_id?
-    programming_language_id.present?
-  end
-
-  def language_id?
-    language_id.present?
-  end
 
   def search_by_programming_language(query)
     query.includes(:developer_programming_languages)
