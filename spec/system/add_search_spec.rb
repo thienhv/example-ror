@@ -8,7 +8,7 @@ RSpec.describe 'Search function', type: :system do
     create :programming_language, name: 'Javascript'
     create :programming_language, name: 'Php'
 
-    @english = create :language, code: 'en'
+    english = create :language, code: 'en'
     create :language, code: 'vn'
 
     @ruby_devloper = create :developer,
@@ -18,7 +18,7 @@ RSpec.describe 'Search function', type: :system do
     @ruby_devloper_english = create :developer,
                                     email: 'quang.pham@example.com',
                                     programming_languages: [ruby_programming_language],
-                                    languages: [@english]
+                                    languages: [english]
   end
 
   it 'shows matched records when a programming language is specified' do
@@ -30,7 +30,7 @@ RSpec.describe 'Search function', type: :system do
     expect(page).to have_content(@ruby_devloper.email)
   end
 
-  it 'shows matched records when a programming language & language is specified' do
+  it 'shows matched records when a programming language & language are specified' do
     visit('/')
 
     select 'Ruby', from: 'search_developer_form[programming_language_id]'

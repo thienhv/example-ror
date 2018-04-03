@@ -13,38 +13,38 @@ RSpec.describe SearchDeveloperForm do
       end
     end
 
-    context 'with from params' do
-      let(:a_language) { create :language }
-      let(:a_programming_language) { create :programming_language }
+    context 'with params' do
+      let(:language) { create :language }
+      let(:programming_language) { create :programming_language }
 
       before do
         create_list(:developer, 2)
       end
 
       it 'returns developers by programming language' do
-        create :developer, programming_languages: [a_programming_language]
+        create :developer, programming_languages: [programming_language]
 
         form = SearchDeveloperForm.new(
-          programming_language_id: a_programming_language.id
+          programming_language_id: programming_language.id
         )
         expect(form.search.size).to eq(1)
       end
 
       it 'returns developers by language' do
-        create :developer, languages: [a_language]
+        create :developer, languages: [language]
 
         form = SearchDeveloperForm.new(
-          language_id: a_language.id
+          language_id: language.id
         )
         expect(form.search.size).to eq(1)
       end
 
       it 'returns developers by programming language & language' do
-        create :developer, programming_languages: [a_programming_language], languages: [a_language]
+        create :developer, programming_languages: [programming_language], languages: [language]
 
         form = SearchDeveloperForm.new(
-          language_id: a_language.id,
-          programming_language_id: a_programming_language.id
+          language_id: language.id,
+          programming_language_id: programming_language.id
         )
         expect(form.search.size).to eq(1)
       end
