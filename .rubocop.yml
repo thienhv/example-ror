@@ -14,11 +14,24 @@ Style/Documentation:
   Enabled: false
 
 Metrics/LineLength:
+  Max: 150
   Exclude:
     - config/puma.rb
     - config/environments/*
     - config/initializers/*
 
+Metrics/MethodLength:
+  Max: 15
+
 Metrics/BlockLength:
   Exclude:
     - config/environments/*
+    - spec/**/*_spec.rb
+    - spec/factories/*
+    - spec/support/*
+
+Rails/InverseOf:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
